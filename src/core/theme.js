@@ -1,5 +1,5 @@
 const KEY = 'ui-theme';
-const root = document.documentElement;
+const root = typeof document !== "undefined" ? document.documentElement : null;
 const dark = () => matchMedia('(prefers-color-scheme: dark)');
 
 const read = () => { try { return localStorage.getItem(KEY); } catch { return null; } };
@@ -16,7 +16,7 @@ const injectTransitionCSS = () => {
   document.head.append(s);
 };
 
-export const getTheme = () => root.dataset.theme || read() || (dark().matches ? 'dark' : 'light');
+export const getTheme = () => !root ? "light" : root.dataset.theme || read() || (dark().matches ? 'dark' : 'light');
 
 function apply(theme) {
   root.dataset.theme = theme;
@@ -26,6 +26,7 @@ function apply(theme) {
 }
 
 export function setTheme(theme, { persist = true, animate = true, origin } = {}) {
+  if (!root) return;
   if (persist) write(theme);
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!animate || reduce || !document.startViewTransition) return apply(theme);
@@ -46,6 +47,7 @@ export function setTheme(theme, { persist = true, animate = true, origin } = {})
 export const toggleTheme = (opts) => setTheme(getTheme() === 'dark' ? 'light' : 'dark', opts);
 
 export function initTheme() {
+  if (!root) return;
   apply(getTheme());
   dark().addEventListener('change', (e) => { if (!read()) apply(e.matches ? 'dark' : 'light'); });
 }

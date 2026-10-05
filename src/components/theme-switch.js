@@ -7,7 +7,9 @@ const stars = [
   ['2.5em', '1.2em', '.4s'], ['.9em', '1.05em', '1.9s'], ['2.1em', '1.75em', '1s'],
 ];
 
-class UIThemeSwitch extends HTMLElement {
+const Base = typeof HTMLElement !== "undefined" ? HTMLElement : class {};
+
+class UIThemeSwitch extends Base {
   static observedAttributes = ['label'];
   #btn;
   #onTheme = (e) => this.#sync(e.detail.theme);
