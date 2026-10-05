@@ -1,0 +1,13 @@
+{
+  "name": "ui-controls",
+  "version": "0.1.0",
+  "type": "module",
+  "sideEffects": ["./src/index.js", "./src/components/*.js"],
+  "exports": {
+    ".": "./src/index.js",
+    "./theme": "./src/core/theme.js",
+    "./theme-switch": "./src/components/theme-switch.js"
+  },
+  "files": ["src"],
+  "engines": { "node": ">=24" }
+}
