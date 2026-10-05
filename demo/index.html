@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ui-controls</title>
+  <!-- Anti-flash: antes de pintar -->
+  <script>try{var t=localStorage.getItem('ui-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.dataset.theme=t;document.documentElement.style.colorScheme=t}catch(e){}</script>
+  <style>
+    :root{--bg:#f7f8fb;--fg:#12141a}
+    [data-theme=dark]{--bg:#0d0f14;--fg:#eceef5}
+    body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--bg);color:var(--fg);font:16px system-ui}
+  </style>
+</head>
+<body>
+  <div style="display:flex;gap:2rem;align-items:center">
+    <ui-theme-switch size="sm"></ui-theme-switch>
+    <ui-theme-switch></ui-theme-switch>
+    <ui-theme-switch size="lg" label="Cambiar tema"></ui-theme-switch>
+  </div>
+  <script type="module">
+    import '../src/index.js';
+    import { initTheme } from '../src/core/theme.js';
+    initTheme();
+  </script>
+</body>
+</html>
