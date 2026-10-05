@@ -21,7 +21,7 @@ export const getTheme = () => root.dataset.theme || read() || (dark().matches ? 
 function apply(theme) {
   root.dataset.theme = theme;
   root.style.colorScheme = theme;
-  root.classList.toggle('dark', theme === 'dark'); // compat con Tailwind
+  root.classList.toggle('dark', theme === 'dark');
   window.dispatchEvent(new CustomEvent('ui-theme-change', { detail: { theme } }));
 }
 
@@ -45,7 +45,6 @@ export function setTheme(theme, { persist = true, animate = true, origin } = {})
 
 export const toggleTheme = (opts) => setTheme(getTheme() === 'dark' ? 'light' : 'dark', opts);
 
-// Sigue al sistema mientras el usuario no haya elegido manualmente
 export function initTheme() {
   apply(getTheme());
   dark().addEventListener('change', (e) => { if (!read()) apply(e.matches ? 'dark' : 'light'); });
