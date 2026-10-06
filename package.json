@@ -21,7 +21,8 @@
     "./button": "./src/components/button.js",
     "./input": "./src/components/input.js",
     "./select": "./src/components/select.js",
-    "./textarea": "./src/components/textarea.js"
+    "./textarea": "./src/components/textarea.js",
+    "./card": "./src/components/card.js"
   },
   "files": [
     "src"
