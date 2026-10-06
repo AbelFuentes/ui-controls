@@ -11,7 +11,9 @@
     "./theme": "./src/core/theme.js",
     "./theme-switch": "./src/components/theme-switch.js",
     "./toggle": "./src/components/toggle.js",
-    "./checkbox": "./src/components/checkbox.js"
+    "./checkbox": "./src/components/checkbox.js",
+    "./radio": "./src/components/radio.js",
+    "./radio-group": "./src/components/radio-group.js"
   },
   "files": [
     "src"
