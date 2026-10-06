@@ -19,14 +19,6 @@ export const Onboarding = {
         .field>span{font-size:.75rem;font-weight:600;opacity:.6;text-transform:uppercase;letter-spacing:.06em}
         .row{display:flex;justify-content:space-between;align-items:center;gap:1rem}
         .actions{display:flex;justify-content:space-between;gap:.75rem}
-        .actions button[hidden]{display:none}
-        .go,.ghost{all:unset;cursor:pointer;text-align:center;padding:.75rem 1.4rem;border-radius:.8rem;font-weight:600;
-          transition:transform .15s,opacity .2s}
-        .go{margin-left:auto;color:#fff;background:linear-gradient(135deg,var(--ui-accent,#6366f1),var(--ui-accent-2,#a855f7))}
-        .ghost{box-shadow:inset 0 0 0 1px color-mix(in srgb,currentColor 25%,transparent)}
-        .go:active,.ghost:active{transform:scale(.96)}
-        .go[disabled]{opacity:.4;cursor:not-allowed}
-        .go:focus-visible,.ghost:focus-visible{outline:.15rem solid var(--ui-accent,#6366f1);outline-offset:.2rem}
         pre{margin:0;padding:1rem;border-radius:.8rem;font:inherit;font-size:.9rem;line-height:1.7;
           background:color-mix(in srgb,currentColor 7%,transparent)}
         .done{place-items:center;text-align:center;align-content:center}
@@ -73,12 +65,12 @@ export const Onboarding = {
         <section class="panel done" data-step="4" hidden>
           <div class="badge">✓</div>
           <h3>¡Todo listo!</h3>
-          <button type="button" class="ghost" data-a="reset">Reiniciar</button>
+          <ui-button variant="outline" data-a="reset">Reiniciar</ui-button>
         </section>
 
         <div class="actions">
-          <button type="button" class="ghost" data-a="back" hidden>Atrás</button>
-          <button type="button" class="go" data-a="next">Siguiente</button>
+          <ui-button variant="outline" data-a="back" hidden>Atrás</ui-button>
+          <ui-button data-a="next" style="margin-left:auto">Siguiente</ui-button>
         </div>
       </form>`;
 

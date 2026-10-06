@@ -4,6 +4,7 @@ export const styles = `
 :host([size=sm]){font-size:12px}
 :host([size=lg]){font-size:18px}
 :host([block]){display:block}
+:host([hidden]){display:none!important}
 :host([disabled]){opacity:.5;pointer-events:none}
 :host([loading]){pointer-events:none}
 *{box-sizing:border-box}

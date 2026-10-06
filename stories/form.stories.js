@@ -14,9 +14,6 @@ export const Settings = {
         .row{display:flex;justify-content:space-between;align-items:center;gap:1rem}
         .field{display:grid;gap:.6rem}
         .field>span{font-size:.75rem;font-weight:600;opacity:.6;text-transform:uppercase;letter-spacing:.06em}
-        .go{all:unset;cursor:pointer;text-align:center;padding:.8rem;border-radius:.8rem;font-weight:600;color:#fff;
-          background:linear-gradient(135deg,var(--ui-accent,#6366f1),var(--ui-accent-2,#a855f7))}
-        .go:focus-visible{outline:.15rem solid var(--ui-accent,#6366f1);outline-offset:.2rem}
         pre{margin:0;font-size:.8rem;opacity:.8;white-space:pre-wrap}
       </style>
 
@@ -48,7 +45,7 @@ export const Settings = {
 
         <ui-checkbox name="terms" checked>Acepto los términos</ui-checkbox>
 
-        <button class="go">Guardar</button>
+        <ui-button type="submit" block>Guardar</ui-button>
         <pre class="out">Envía el formulario para ver los valores.</pre>
       </form>`;
 

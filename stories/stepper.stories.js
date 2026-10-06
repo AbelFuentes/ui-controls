@@ -32,7 +32,7 @@ export const WithButtons = {
     el.innerHTML = `
       <ui-stepper value="1" style="width:100%">${steps}</ui-stepper>
       <div style="display:flex;gap:.75rem">
-        <button data-a="prev">Atrás</button><button data-a="next">Siguiente</button>
+        <ui-button variant="outline" data-a="prev">Atrás</ui-button><ui-button data-a="next">Siguiente</ui-button>
       </div>`;
     const s = el.querySelector('ui-stepper');
     el.querySelector('[data-a=prev]').onclick = () => s.prev();
