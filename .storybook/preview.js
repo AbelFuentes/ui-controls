@@ -1,3 +1,4 @@
+import '../src/tokens.css';
 import '../src/index.js';
 import { initTheme } from '../src/core/theme.js';
 
