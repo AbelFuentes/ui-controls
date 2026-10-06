@@ -13,7 +13,8 @@
     "./toggle": "./src/components/toggle.js",
     "./checkbox": "./src/components/checkbox.js",
     "./radio": "./src/components/radio.js",
-    "./radio-group": "./src/components/radio-group.js"
+    "./radio-group": "./src/components/radio-group.js",
+    "./segmented": "./src/components/segmented.js"
   },
   "files": [
     "src"
