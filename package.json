@@ -15,7 +15,8 @@
     "./radio": "./src/components/radio.js",
     "./radio-group": "./src/components/radio-group.js",
     "./segmented": "./src/components/segmented.js",
-    "./slider": "./src/components/slider.js"
+    "./slider": "./src/components/slider.js",
+    "./stepper": "./src/components/stepper.js"
   },
   "files": [
     "src"
