@@ -1,5 +1,5 @@
 {
-  "name": "ui-controls",
+  "name": "@abelfuentes/ui-controls",
   "version": "0.1.0",
   "type": "module",
   "sideEffects": [
@@ -22,5 +22,16 @@
   },
   "scripts": {
     "dev": "vite demo"
-  }
+  },
+  "description": "Controles UI atómicos como Web Components. Funcionan en cualquier página.",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "web-components",
+    "ui",
+    "dark-mode",
+    "theme-switch"
+  ]
 }
