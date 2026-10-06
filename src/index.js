@@ -1,6 +1,7 @@
 export * from './core/theme.js';
 export * from './components/button.js';
 export * from './components/card.js';
+export * from './components/carousel.js';
 export * from './components/checkbox.js';
 export * from './components/input.js';
 export * from './components/radio.js';

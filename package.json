@@ -22,7 +22,8 @@
     "./input": "./src/components/input.js",
     "./select": "./src/components/select.js",
     "./textarea": "./src/components/textarea.js",
-    "./card": "./src/components/card.js"
+    "./card": "./src/components/card.js",
+    "./carousel": "./src/components/carousel.js"
   },
   "files": [
     "src"
