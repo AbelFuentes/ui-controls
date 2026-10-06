@@ -1,4 +1,5 @@
 export * from './core/theme.js';
+export * from './components/button.js';
 export * from './components/checkbox.js';
 export * from './components/radio.js';
 export * from './components/radio-group.js';

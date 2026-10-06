@@ -17,7 +17,8 @@
     "./segmented": "./src/components/segmented.js",
     "./slider": "./src/components/slider.js",
     "./stepper": "./src/components/stepper.js",
-    "./tabs": "./src/components/tabs.js"
+    "./tabs": "./src/components/tabs.js",
+    "./button": "./src/components/button.js"
   },
   "files": [
     "src"
