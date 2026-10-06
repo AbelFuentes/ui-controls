@@ -20,7 +20,8 @@
     "./tabs": "./src/components/tabs.js",
     "./button": "./src/components/button.js",
     "./input": "./src/components/input.js",
-    "./select": "./src/components/select.js"
+    "./select": "./src/components/select.js",
+    "./textarea": "./src/components/textarea.js"
   },
   "files": [
     "src"

@@ -9,6 +9,7 @@ export * from './components/select.js';
 export * from './components/slider.js';
 export * from './components/stepper.js';
 export * from './components/tabs.js';
+export * from './components/textarea.js';
 export * from './components/theme-switch.js';
 export * from './components/toggle.js';
 // Nuevos controles (orden alfabético): export * from './components/<nombre>.js';
