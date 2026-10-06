@@ -5,6 +5,7 @@ export * from './components/input.js';
 export * from './components/radio.js';
 export * from './components/radio-group.js';
 export * from './components/segmented.js';
+export * from './components/select.js';
 export * from './components/slider.js';
 export * from './components/stepper.js';
 export * from './components/tabs.js';

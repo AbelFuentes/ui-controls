@@ -19,7 +19,8 @@
     "./stepper": "./src/components/stepper.js",
     "./tabs": "./src/components/tabs.js",
     "./button": "./src/components/button.js",
-    "./input": "./src/components/input.js"
+    "./input": "./src/components/input.js",
+    "./select": "./src/components/select.js"
   },
   "files": [
     "src"
