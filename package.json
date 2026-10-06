@@ -18,7 +18,8 @@
     "./slider": "./src/components/slider.js",
     "./stepper": "./src/components/stepper.js",
     "./tabs": "./src/components/tabs.js",
-    "./button": "./src/components/button.js"
+    "./button": "./src/components/button.js",
+    "./input": "./src/components/input.js"
   },
   "files": [
     "src"
