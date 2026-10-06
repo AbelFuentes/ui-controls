@@ -10,7 +10,8 @@
     ".": "./src/index.js",
     "./theme": "./src/core/theme.js",
     "./theme-switch": "./src/components/theme-switch.js",
-    "./toggle": "./src/components/toggle.js"
+    "./toggle": "./src/components/toggle.js",
+    "./checkbox": "./src/components/checkbox.js"
   },
   "files": [
     "src"
