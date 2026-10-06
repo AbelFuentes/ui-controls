@@ -4,7 +4,7 @@ import { styles } from './radio.styles.js';
 const Base = typeof HTMLElement !== 'undefined' ? HTMLElement : class {};
 
 class UIRadio extends Base {
-  static observedAttributes = ['checked', 'disabled', 'label'];
+  static observedAttributes = ['checked', 'disabled', 'label', 'roving'];
   #btn;
 
   constructor() {
@@ -36,7 +36,6 @@ class UIRadio extends Base {
   get disabled() { return this.hasAttribute('disabled'); }
   set disabled(v) { this.toggleAttribute('disabled', !!v); }
 
-  set tabStop(v) { this.#btn.tabIndex = v ? 0 : -1; } // lo usa el grupo (roving tabindex)
   focus(opts) { this.#btn.focus(opts); }
 
   connectedCallback() { this.#sync(); }
@@ -44,6 +43,7 @@ class UIRadio extends Base {
   attributeChangedCallback(name, _, v) {
     if (name === 'label') v ? this.#btn.setAttribute('aria-label', v) : this.#btn.removeAttribute('aria-label');
     if (name === 'disabled') this.#btn.disabled = this.disabled;
+    if (name === 'roving') this.#btn.tabIndex = v === null ? 0 : Number(v); // lo controla el grupo
     this.#sync();
   }
 

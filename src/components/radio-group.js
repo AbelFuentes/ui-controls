@@ -3,6 +3,7 @@ import { styles } from './radio-group.styles.js';
 import './radio.js';
 
 const Base = typeof HTMLElement !== 'undefined' ? HTMLElement : class {};
+const val = (r) => r.getAttribute('value') ?? '';
 
 class UIRadioGroup extends Base {
   static formAssociated = true;
@@ -21,7 +22,10 @@ class UIRadioGroup extends Base {
 
   get #radios() { return [...this.querySelectorAll('ui-radio')]; }
 
-  get value() { return this.#radios.find((r) => r.checked)?.value ?? ''; }
+  get value() {
+    const r = this.#radios.find((x) => x.hasAttribute('checked'));
+    return r ? val(r) : '';
+  }
   set value(v) { this.setAttribute('value', v); }
 
   connectedCallback() {
@@ -40,19 +44,20 @@ class UIRadioGroup extends Base {
   }
 
   #select(value) {
-    this.#radios.forEach((r) => (r.checked = r.value === value));
+    this.#radios.forEach((r) => r.toggleAttribute('checked', val(r) === value));
     this.#roving();
   }
 
   #roving() {
-    const enabled = this.#radios.filter((r) => !r.disabled);
-    const current = enabled.find((r) => r.checked) ?? enabled[0];
-    this.#radios.forEach((r) => (r.tabStop = r === current));
+    const enabled = this.#radios.filter((r) => !r.hasAttribute('disabled'));
+    const current = enabled.find((r) => r.hasAttribute('checked')) ?? enabled[0];
+    this.#radios.forEach((r) => r.setAttribute('roving', r === current ? '0' : '-1'));
     this.#internals?.setFormValue(this.value || null);
   }
 
   #commit(value) {
     this.setAttribute('value', value);
+    this.#select(value);
     this.dispatchEvent(new CustomEvent('change', { detail: { value }, bubbles: true, composed: true }));
   }
 
@@ -60,12 +65,12 @@ class UIRadioGroup extends Base {
     const radio = e.target.closest?.('ui-radio');
     if (!radio) return;
     e.stopPropagation(); // el grupo emite su propio change
-    this.#commit(radio.value);
+    this.#commit(val(radio));
   };
 
   #onKey = (e) => {
     const step = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
-    const radios = this.#radios.filter((r) => !r.disabled);
+    const radios = this.#radios.filter((r) => !r.hasAttribute('disabled'));
     const i = radios.indexOf(e.target.closest?.('ui-radio'));
     if (i < 0) return;
     let next;
@@ -75,7 +80,7 @@ class UIRadioGroup extends Base {
     else return;
     e.preventDefault();
     next.focus();
-    if (next.value !== this.value) this.#commit(next.value);
+    if (val(next) !== this.value) this.#commit(val(next));
   };
 }
 
