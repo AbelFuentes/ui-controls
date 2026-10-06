@@ -34,7 +34,16 @@
     "./skeleton": "./src/components/skeleton.js",
     "./spinner": "./src/components/spinner.js",
     "./stack": "./src/components/stack.js",
-    "./tokens.css": "./src/tokens.css"
+    "./tokens.css": "./src/tokens.css",
+    "./accordion": "./src/components/accordion.js",
+    "./breadcrumb": "./src/components/breadcrumb.js",
+    "./dialog": "./src/components/dialog.js",
+    "./drawer": "./src/components/drawer.js",
+    "./dropdown": "./src/components/dropdown.js",
+    "./pagination": "./src/components/pagination.js",
+    "./table": "./src/components/table.js",
+    "./toast": "./src/components/toast.js",
+    "./tooltip": "./src/components/tooltip.js"
   },
   "files": [
     "src"
