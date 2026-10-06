@@ -4,7 +4,8 @@
   "type": "module",
   "sideEffects": [
     "./src/index.js",
-    "./src/components/*.js"
+    "./src/components/*.js",
+    "*.css"
   ],
   "exports": {
     ".": "./src/index.js",
@@ -23,7 +24,17 @@
     "./select": "./src/components/select.js",
     "./textarea": "./src/components/textarea.js",
     "./card": "./src/components/card.js",
-    "./carousel": "./src/components/carousel.js"
+    "./carousel": "./src/components/carousel.js",
+    "./alert": "./src/components/alert.js",
+    "./app-shell": "./src/components/app-shell.js",
+    "./avatar": "./src/components/avatar.js",
+    "./badge": "./src/components/badge.js",
+    "./grid": "./src/components/grid.js",
+    "./progress": "./src/components/progress.js",
+    "./skeleton": "./src/components/skeleton.js",
+    "./spinner": "./src/components/spinner.js",
+    "./stack": "./src/components/stack.js",
+    "./tokens.css": "./src/tokens.css"
   },
   "files": [
     "src"
