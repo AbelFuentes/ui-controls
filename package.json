@@ -18,10 +18,23 @@
     "node": ">=24"
   },
   "devDependencies": {
-    "vite": "^8.3.2"
+    "vite": "^8.3.2",
+    "storybook": "^10.6.1",
+    "@storybook/web-components-vite": "^10.6.1",
+    "@chromatic-com/storybook": "latest",
+    "@storybook/addon-vitest": "^10.6.1",
+    "@storybook/addon-a11y": "^10.6.1",
+    "@storybook/addon-docs": "^10.6.1",
+    "lit": "latest",
+    "vitest": "latest",
+    "@vitest/browser-playwright": "latest",
+    "@vitest/coverage-v8": "latest",
+    "playwright": "latest"
   },
   "scripts": {
-    "dev": "vite demo"
+    "dev": "vite demo",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "description": "Controles UI atómicos como Web Components. Funcionan en cualquier página.",
   "license": "MIT",
