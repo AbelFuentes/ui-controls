@@ -14,7 +14,8 @@
     "./checkbox": "./src/components/checkbox.js",
     "./radio": "./src/components/radio.js",
     "./radio-group": "./src/components/radio-group.js",
-    "./segmented": "./src/components/segmented.js"
+    "./segmented": "./src/components/segmented.js",
+    "./slider": "./src/components/slider.js"
   },
   "files": [
     "src"

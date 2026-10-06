@@ -3,6 +3,7 @@ export * from './components/checkbox.js';
 export * from './components/radio.js';
 export * from './components/radio-group.js';
 export * from './components/segmented.js';
+export * from './components/slider.js';
 export * from './components/theme-switch.js';
 export * from './components/toggle.js';
 // Nuevos controles (orden alfabético): export * from './components/<nombre>.js';
