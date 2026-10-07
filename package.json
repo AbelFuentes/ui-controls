@@ -8,42 +8,147 @@
     "*.css"
   ],
   "exports": {
-    ".": "./src/index.js",
-    "./theme": "./src/core/theme.js",
-    "./theme-switch": "./src/components/theme-switch.js",
-    "./toggle": "./src/components/toggle.js",
-    "./checkbox": "./src/components/checkbox.js",
-    "./radio": "./src/components/radio.js",
-    "./radio-group": "./src/components/radio-group.js",
-    "./segmented": "./src/components/segmented.js",
-    "./slider": "./src/components/slider.js",
-    "./stepper": "./src/components/stepper.js",
-    "./tabs": "./src/components/tabs.js",
-    "./button": "./src/components/button.js",
-    "./input": "./src/components/input.js",
-    "./select": "./src/components/select.js",
-    "./textarea": "./src/components/textarea.js",
-    "./card": "./src/components/card.js",
-    "./carousel": "./src/components/carousel.js",
-    "./alert": "./src/components/alert.js",
-    "./app-shell": "./src/components/app-shell.js",
-    "./avatar": "./src/components/avatar.js",
-    "./badge": "./src/components/badge.js",
-    "./grid": "./src/components/grid.js",
-    "./progress": "./src/components/progress.js",
-    "./skeleton": "./src/components/skeleton.js",
-    "./spinner": "./src/components/spinner.js",
-    "./stack": "./src/components/stack.js",
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./theme": {
+      "types": "./src/index.d.ts",
+      "default": "./src/core/theme.js"
+    },
+    "./theme-switch": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/theme-switch.js"
+    },
+    "./toggle": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/toggle.js"
+    },
+    "./checkbox": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/checkbox.js"
+    },
+    "./radio": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/radio.js"
+    },
+    "./radio-group": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/radio-group.js"
+    },
+    "./segmented": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/segmented.js"
+    },
+    "./slider": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/slider.js"
+    },
+    "./stepper": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/stepper.js"
+    },
+    "./tabs": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/tabs.js"
+    },
+    "./button": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/button.js"
+    },
+    "./input": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/input.js"
+    },
+    "./select": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/select.js"
+    },
+    "./textarea": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/textarea.js"
+    },
+    "./card": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/card.js"
+    },
+    "./carousel": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/carousel.js"
+    },
+    "./alert": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/alert.js"
+    },
+    "./app-shell": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/app-shell.js"
+    },
+    "./avatar": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/avatar.js"
+    },
+    "./badge": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/badge.js"
+    },
+    "./grid": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/grid.js"
+    },
+    "./progress": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/progress.js"
+    },
+    "./skeleton": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/skeleton.js"
+    },
+    "./spinner": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/spinner.js"
+    },
+    "./stack": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/stack.js"
+    },
     "./tokens.css": "./src/tokens.css",
-    "./accordion": "./src/components/accordion.js",
-    "./breadcrumb": "./src/components/breadcrumb.js",
-    "./dialog": "./src/components/dialog.js",
-    "./drawer": "./src/components/drawer.js",
-    "./dropdown": "./src/components/dropdown.js",
-    "./pagination": "./src/components/pagination.js",
-    "./table": "./src/components/table.js",
-    "./toast": "./src/components/toast.js",
-    "./tooltip": "./src/components/tooltip.js"
+    "./accordion": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/accordion.js"
+    },
+    "./breadcrumb": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/breadcrumb.js"
+    },
+    "./dialog": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/dialog.js"
+    },
+    "./drawer": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/drawer.js"
+    },
+    "./dropdown": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/dropdown.js"
+    },
+    "./pagination": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/pagination.js"
+    },
+    "./table": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/table.js"
+    },
+    "./toast": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/toast.js"
+    },
+    "./tooltip": {
+      "types": "./src/index.d.ts",
+      "default": "./src/components/tooltip.js"
+    }
   },
   "files": [
     "src"
@@ -68,7 +173,11 @@
   "scripts": {
     "dev": "vite demo",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test": "vitest run",
+    "test:types": "bash scripts/check-consumer.sh",
+    "verify": "pnpm test && pnpm test:types",
+    "prepublishOnly": "pnpm verify"
   },
   "description": "Controles UI atómicos como Web Components. Funcionan en cualquier página.",
   "license": "MIT",
@@ -80,5 +189,16 @@
     "ui",
     "dark-mode",
     "theme-switch"
-  ]
+  ],
+  "main": "./src/index.js",
+  "module": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "peerDependencies": {
+    "@types/react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  }
 }
