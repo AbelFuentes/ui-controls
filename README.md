@@ -60,3 +60,18 @@ Los tipos van incluidos: no necesitas declarar nada en tu proyecto.
 Eventos en React 19: usa `onInput` para escribir y el nombre en minúsculas para los eventos propios
 (`onchange`, `onclose`, `onselect`...), con `event.detail` tipado. `onChange` en camelCase no se dispara con
 custom elements (limitación de React). Si no usas `skipLibCheck`, solo necesitas `@types/react` instalado.
+
+## Demo
+
+Catálogo interactivo con todos los componentes y ejemplos completos (Login, Pricing, Dashboard, Settings, Landing):
+https://abelfuentes.github.io/ui-controls/
+
+## Sin build (CDN)
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@abelfuentes/ui-controls@0.8.0/src/tokens.css">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@abelfuentes/ui-controls@0.8.0/src/index.js"></script>
+    <ui-button>Hola</ui-button>
+
+## Apoya el proyecto
+
+Si te sirve, puedes invitarme un café: https://ko-fi.com/abelfuentes

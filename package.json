@@ -185,7 +185,7 @@
     "verify": "pnpm test && pnpm test:types",
     "prepublishOnly": "pnpm verify"
   },
-  "description": "Controles UI atómicos como Web Components. Funcionan en cualquier página.",
+  "description": "Componentes UI atómicos como Web Components. Sin dependencias; funcionan en React, Vue, Svelte o HTML plano.",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
@@ -194,7 +194,17 @@
     "web-components",
     "ui",
     "dark-mode",
-    "theme-switch"
+    "theme-switch",
+    "custom-elements",
+    "component-library",
+    "design-system",
+    "ui-library",
+    "react",
+    "vue",
+    "svelte",
+    "typescript",
+    "zero-dependencies",
+    "accessible"
   ],
   "main": "./src/index.js",
   "module": "./src/index.js",
@@ -206,5 +216,18 @@
     "@types/react": {
       "optional": true
     }
+  },
+  "author": "abelfuentes",
+  "homepage": "https://abelfuentes.github.io/ui-controls/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abelfuentes/ui-controls.git"
+  },
+  "bugs": {
+    "url": "https://github.com/abelfuentes/ui-controls/issues"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://ko-fi.com/abelfuentes"
   }
 }
