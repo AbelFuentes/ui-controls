@@ -47,3 +47,16 @@ El tema se aplica en `<html>` como `data-theme`, clase `.dark` y `color-scheme`.
 
     import { toast } from '@abelfuentes/ui-controls/toast';
     toast.success('Cambios guardados', { title: 'Listo' });
+
+## TypeScript y React
+
+Los tipos van incluidos: no necesitas declarar nada en tu proyecto.
+
+    import '@abelfuentes/ui-controls';
+
+    <ui-input type="email" label="Correo" required value={email} onInput={(e) => setEmail(e.currentTarget.value)} />
+    <ui-button type="submit" block>Entrar</ui-button>
+
+Eventos en React 19: usa `onInput` para escribir y el nombre en minúsculas para los eventos propios
+(`onchange`, `onclose`, `onselect`...), con `event.detail` tipado. `onChange` en camelCase no se dispara con
+custom elements (limitación de React). Si no usas `skipLibCheck`, solo necesitas `@types/react` instalado.
