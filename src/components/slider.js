@@ -63,6 +63,9 @@ class UISlider extends Base {
   get min() { return this.#num('min', 0); }
   get max() { return Math.max(this.min, this.#num('max', 100)); }
   get step() { const s = this.#num('step', 1); return s > 0 ? s : 1; }
+  set min(v) { this.setAttribute('min', String(v)); }
+  set max(v) { this.setAttribute('max', String(v)); }
+  set step(v) { this.setAttribute('step', String(v)); }
   get disabled() { return this.hasAttribute('disabled'); }
   set disabled(v) { this.toggleAttribute('disabled', !!v); }
   get value() { return this.#snap(this.#num('value', this.min)); }

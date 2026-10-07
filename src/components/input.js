@@ -60,6 +60,7 @@ class UIInput extends Base {
   get value() { return this.#input.value; }
   set value(v) { this.#input.value = v ?? ''; this.#sync(); }
   get type() { return this.getAttribute('type') ?? 'text'; }
+  set type(v) { this.setAttribute('type', String(v)); }
   get validity() { return this.#internals?.validity; }
   checkValidity() { return this.#internals?.checkValidity(); }
   reportValidity() { return this.#internals?.reportValidity(); }

@@ -39,6 +39,7 @@ class UIPagination extends Base {
   }
 
   get pages() { return Math.max(1, parseInt(this.getAttribute('pages'), 10) || 1); }
+  set pages(v) { this.setAttribute('pages', String(v)); }
   get page() { return Math.min(this.pages, Math.max(1, parseInt(this.getAttribute('page'), 10) || 1)); }
   set page(v) { this.setAttribute('page', String(v)); }
 
