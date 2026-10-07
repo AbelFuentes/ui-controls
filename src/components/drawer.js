@@ -22,7 +22,9 @@ dialog[open]{animation:slide-r .38s cubic-bezier(.2,.8,.2,1)}
 class UIDrawer extends UIDialog {
   constructor() {
     super();
-    this.shadowRoot.insertAdjacentHTML('beforeend', `<style>${css}</style>`);
+    const style = document.createElement('style');
+    style.textContent = css;
+    this.shadowRoot.append(style);
   }
 }
 
