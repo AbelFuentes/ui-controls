@@ -122,7 +122,7 @@ class UIDropdown extends Base {
       const b = mk('button', 'item');
       b.type = 'button';
       b.tabIndex = -1;
-      b.part.add('item');
+      b.setAttribute('part', 'item');
       b.setAttribute('role', 'menuitem');
       b.dataset.value = o.value || o.textContent.trim();
       const t = document.createElement('span');

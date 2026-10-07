@@ -69,7 +69,7 @@ class UIAccordion extends Base {
       p.slot = `p${i}`;
       const div = document.createElement('div');
       div.className = 'item';
-      div.part.add('item');
+      div.setAttribute('part', 'item');
       div.innerHTML = `
         <h3><button class="hd" part="header" type="button" id="h${i}" aria-controls="r${i}" aria-expanded="false">
           <span class="t"></span>

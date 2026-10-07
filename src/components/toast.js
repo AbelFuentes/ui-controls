@@ -62,7 +62,7 @@ class UIToaster extends Base {
   push(message, { title = '', tone = 'info', duration = 4500 } = {}) {
     const el = document.createElement('div');
     el.className = `t ${tone}`;
-    el.part.add('toast');
+    el.setAttribute('part', 'toast');
     el.setAttribute('role', tone === 'danger' ? 'alert' : 'status');
     el.innerHTML = `
       <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">${ICONS[tone] ?? ICONS.info}</svg>

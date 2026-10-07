@@ -112,7 +112,7 @@ class UISelect extends Base {
     this.#menu.replaceChildren(...this.#options.map((o, i) => {
       const li = document.createElement('li');
       li.className = 'opt';
-      li.part.add('option');
+      li.setAttribute('part', 'option');
       li.id = `o${i}`;
       li.setAttribute('role', 'option');
       li.dataset.value = o.value;

@@ -1,10 +1,12 @@
-import { readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { resolve } from 'node:path';
 
-const dir = new URL('../src/components/', import.meta.url);
+const ROOT = process.cwd();
 
-export const read = (rel) => readFileSync(new URL(`../${rel}`, import.meta.url), 'utf8');
+export const read = (rel) => readFileSync(resolve(ROOT, rel), 'utf8');
+export const exists = (rel) => existsSync(resolve(ROOT, rel));
 
-export const componentFiles = readdirSync(dir)
+export const componentFiles = readdirSync(resolve(ROOT, 'src/components'))
   .filter((f) => f.endsWith('.js') && !f.endsWith('.styles.js'))
   .map((f) => f.slice(0, -3));
 

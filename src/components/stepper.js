@@ -58,7 +58,7 @@ class UIStepper extends Base {
   #build() {
     this.#list.replaceChildren(...this.#items.map((src, i) => {
       const li = document.createElement('li');
-      li.part.add('step');
+      li.setAttribute('part', 'step');
       li.innerHTML = `
         <span class="hit" part="hit">
           <span class="node" part="node">

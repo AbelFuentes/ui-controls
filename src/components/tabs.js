@@ -65,7 +65,7 @@ class UITabs extends Base {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'tab';
-      b.part.add('tab');
+      b.setAttribute('part', 'tab');
       b.setAttribute('role', 'tab');
       b.dataset.value = p.dataset.tab;
       b.textContent = p.dataset.label || p.dataset.tab;

@@ -75,7 +75,7 @@ class UISegmented extends Base {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'opt';
-      b.part.add('option');
+      b.setAttribute('part', 'option');
       b.setAttribute('role', 'radio');
       b.dataset.value = o.value;
       b.textContent = o.textContent.trim();

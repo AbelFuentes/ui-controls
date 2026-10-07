@@ -75,7 +75,7 @@ class UIPagination extends Base {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'p';
-      b.part.add('arrow');
+      b.setAttribute('part', 'arrow');
       b.dataset.page = String(dir < 0 ? page - 1 : page + 1);
       b.disabled = dir < 0 ? page <= 1 : page >= pages;
       b.setAttribute('aria-label', dir < 0 ? 'Página anterior' : 'Página siguiente');
@@ -92,7 +92,7 @@ class UIPagination extends Base {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'p';
-      b.part.add('page');
+      b.setAttribute('part', 'page');
       b.dataset.page = String(it);
       b.textContent = it;
       b.setAttribute('aria-label', `Página ${it}`);

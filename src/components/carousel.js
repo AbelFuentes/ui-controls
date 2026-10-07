@@ -192,7 +192,7 @@ class UICarousel extends Base {
         const b = document.createElement('button');
         b.type = 'button';
         b.className = 'dot';
-        b.part.add('dot');
+        b.setAttribute('part', 'dot');
         b.dataset.i = i;
         b.setAttribute('aria-label', `Ir a la diapositiva ${i + 1}`);
         return b;

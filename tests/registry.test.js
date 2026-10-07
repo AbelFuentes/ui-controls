@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { existsSync } from 'node:fs';
-import { sourceTags, componentFiles, read } from './helpers.js';
+import { sourceTags, componentFiles, read, exists } from './helpers.js';
 import '../src/index.js';
 
 describe('registro', () => {
@@ -34,9 +33,9 @@ describe('tipos y paquete', () => {
     for (const [k, v] of Object.entries(p.exports)) {
       if (k.endsWith('.css')) continue;
       expect(v.types, k).toBe('./src/index.d.ts');
-      expect(existsSync(new URL(`../${v.default}`, import.meta.url)), k).toBe(true);
+      expect(exists(v.default), k).toBe(true);
     }
-    expect(existsSync(new URL('../src/index.d.ts', import.meta.url))).toBe(true);
-    expect(existsSync(new URL('../src/react.d.ts', import.meta.url))).toBe(true);
+    expect(exists('src/index.d.ts')).toBe(true);
+    expect(exists('src/react.d.ts')).toBe(true);
   });
 });
