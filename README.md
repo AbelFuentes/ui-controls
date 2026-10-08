@@ -1,5 +1,7 @@
 # ui-controls
 
+[![npm](https://img.shields.io/npm/v/@abelfuentes/ui-controls)](https://www.npmjs.com/package/@abelfuentes/ui-controls) [![descargas](https://img.shields.io/npm/dm/@abelfuentes/ui-controls)](https://www.npmjs.com/package/@abelfuentes/ui-controls) [![licencia](https://img.shields.io/npm/l/@abelfuentes/ui-controls)](LICENSE) [![Storybook](https://img.shields.io/badge/Storybook-demo-ff4785?logo=storybook&logoColor=white)](https://abelfuentes.github.io/ui-controls/) [![Ko-fi](https://img.shields.io/badge/Ko--fi-apoyar-ff5e5b?logo=kofi&logoColor=white)](https://ko-fi.com/abelfuentes)
+
 Componentes UI atómicos como Web Components. Sin dependencias, funcionan en cualquier framework (o sin ninguno).
 
 ## Instalar
