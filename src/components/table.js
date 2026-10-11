@@ -41,7 +41,8 @@ tbody tr:focus-visible{outline:.15em solid var(--ui-accent,#6366f1);outline-offs
 .sort .u,.sort .d{opacity:.35;transition:opacity .2s}
 th[aria-sort=ascending] .u,th[aria-sort=descending] .d{opacity:1;color:var(--ui-accent,#6366f1)}
 th[aria-sort=ascending],th[aria-sort=descending]{color:var(--ui-text,CanvasText)}
-.empty{padding:2.5em 1em;text-align:center;opacity:.55}
+.empty{padding:2.5em 1em;text-align:center}
+.et{opacity:.55}
 .busy{position:absolute;inset:0;z-index:2;display:none;place-items:center;border-radius:1.1em;
   background:color-mix(in srgb,var(--ui-surface,Canvas) 60%,transparent);backdrop-filter:blur(2px)}
 :host([loading]) .busy{display:grid}
