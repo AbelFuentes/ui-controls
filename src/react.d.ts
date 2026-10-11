@@ -1,6 +1,6 @@
 import type * as React from 'react';
 import type {
-  Size, TableColumn, TableRow,
+  Size, TableColumn, TableRow, TableSortDetail, TableSelectDetail, TableRowClickDetail,
   UIAccordion, UIAlert, UIAppShell, UIAvatar, UIBadge, UIBreadcrumb, UIButton, UICard, UICarousel,
   UICheckbox, UIDialog, UIDrawer, UIDropdown, UIGrid, UIInput, UIPagination, UIProgress, UIRadio,
   UIRadioGroup, UISegmented, UISelect, UISkeleton, UISlider, UISpinner, UIStack, UIStepper, UITable,
@@ -119,9 +119,25 @@ type UIStepperProps = Base<UIStepper> & {
   onchange?: Ev<{ value: number }>;
 };
 type UITableProps = Base<UITable> & {
-  striped?: boolean; selectable?: boolean; empty?: string;
-  columns?: TableColumn[]; rows?: TableRow[];
-  onsort?: Ev<{ key: string | null; dir: 'asc' | 'desc' | null }>; onselect?: Ev<{ rows: TableRow[] }>;
+  /** true / "multiple": casillas · "single": selección única con radio */
+  selectable?: boolean | 'single' | 'multiple';
+  clickable?: boolean;
+  striped?: boolean;
+  compact?: boolean;
+  loading?: boolean;
+  'manual-sort'?: boolean;
+  empty?: string;
+  label?: string;
+  'max-height'?: string;
+  'row-key'?: string;
+  'sort-key'?: string;
+  'sort-dir'?: 'asc' | 'desc';
+  columns?: TableColumn[];
+  rows?: TableRow[];
+  selection?: TableRow[];
+  onsort?: Ev<TableSortDetail>;
+  onselect?: Ev<TableSelectDetail>;
+  onrowclick?: Ev<TableRowClickDetail>;
 };
 type UITabsProps = Base<UITabs> & {
   value?: string; variant?: 'line' | 'pill'; size?: Size; label?: string; onchange?: Ev<{ value: string }>;

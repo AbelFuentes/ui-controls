@@ -35,9 +35,20 @@ export interface TableColumn<R = TableRow> {
   key: string;
   label?: string;
   sortable?: boolean;
+  hidden?: boolean;
   align?: 'left' | 'center' | 'right';
   width?: string;
   render?: (row: R) => Node | string | number | null | undefined;
+  /** Valor usado para ordenar cuando difiere del mostrado. */
+  sortValue?: (row: R) => string | number | null | undefined;
+}
+export interface TableSortDetail { key: string | null; dir: 'asc' | 'desc' | null }
+export interface TableSelectDetail<R = TableRow> { rows: R[]; keys: unknown[] }
+export interface TableRowClickDetail<R = TableRow> { row: R; index: number }
+export interface UITableEventMap {
+  sort: CustomEvent<TableSortDetail>;
+  select: CustomEvent<TableSelectDetail>;
+  rowclick: CustomEvent<TableRowClickDetail>;
 }
 
 /* ───────── elementos ───────── */
@@ -138,7 +149,17 @@ export class UIStepper extends HTMLElement {
 export class UITable extends HTMLElement {
   columns: TableColumn[];
   rows: TableRow[];
-  readonly selection: TableRow[];
+  /** Filas seleccionadas (get) o selección inicial (set). */
+  selection: TableRow[];
+  /** Claves de las filas seleccionadas (`row-key`; sin clave, las filas mismas). */
+  readonly selectedKeys: unknown[];
+  clearSelection(): void;
+  addEventListener<K extends keyof UITableEventMap>(type: K, listener: (this: UITable, ev: UITableEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+  addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: UITable, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+  addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+  removeEventListener<K extends keyof UITableEventMap>(type: K, listener: (this: UITable, ev: UITableEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+  removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: UITable, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+  removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
 }
 export class UITabs extends HTMLElement {
   value: string;
