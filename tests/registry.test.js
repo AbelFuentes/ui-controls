@@ -19,23 +19,33 @@ describe('registro', () => {
 
 describe('tipos y paquete', () => {
   const tagsIn = (src) => [...src.matchAll(/'(ui-[a-z-]+)':/g)].map((m) => m[1]).sort();
+  const pkg = () => JSON.parse(read('package.json'));
 
   it('index.d.ts y react.d.ts declaran todos los tags', () => {
     expect(tagsIn(read('src/index.d.ts'))).toEqual(sourceTags);
     expect(tagsIn(read('src/react.d.ts'))).toEqual(sourceTags);
   });
 
-  it('package.json expone types y cada componente tiene export', () => {
-    const p = JSON.parse(read('package.json'));
-    expect(p.types).toBe('./src/index.d.ts');
-    expect(p.files).toContain('src');
+  it('package.json publica dist (no src) y expone types', () => {
+    const p = pkg();
+    expect(p.types).toBe('./dist/index.d.ts');
+    expect(p.files).toEqual(['dist']);
+    expect(p.sideEffects).toBeUndefined(); // los chunks de dist registran elementos
     for (const f of componentFiles) expect(p.exports[`./${f}`], f).toBeTruthy();
     for (const [k, v] of Object.entries(p.exports)) {
-      if (k.endsWith('.css')) continue;
-      expect(v.types, k).toBe('./src/index.d.ts');
-      expect(exists(v.default), k).toBe(true);
+      if (k.endsWith('.css')) { expect(v, k).toBe('./dist/tokens.css'); continue; }
+      expect(v.types, k).toBe('./dist/index.d.ts');
+      expect(v.default.startsWith('./dist/'), k).toBe(true);
     }
-    expect(exists('src/index.d.ts')).toBe(true);
-    expect(exists('src/react.d.ts')).toBe(true);
+  });
+
+  it.skipIf(!exists('dist/index.js'))('dist contiene todo lo que exporta package.json', () => {
+    for (const v of Object.values(pkg().exports)) {
+      const f = typeof v === 'string' ? v : v.default;
+      expect(exists(f), f).toBe(true);
+    }
+    expect(exists('dist/index.d.ts')).toBe(true);
+    expect(exists('dist/react.d.ts')).toBe(true);
+    expect(exists('dist/ui-controls.min.js')).toBe(true);
   });
 });

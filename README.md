@@ -70,8 +70,8 @@ https://abelfuentes.github.io/ui-controls/
 
 ## Sin build (CDN)
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@abelfuentes/ui-controls@0.8.0/src/tokens.css">
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@abelfuentes/ui-controls@0.8.0/src/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@abelfuentes/ui-controls@0.9.0/dist/tokens.css">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@abelfuentes/ui-controls@0.9.0/dist/ui-controls.min.js"></script>
     <ui-button>Hola</ui-button>
 
 ## Apoya el proyecto

@@ -2,156 +2,151 @@
   "name": "@abelfuentes/ui-controls",
   "version": "0.9.0",
   "type": "module",
-  "sideEffects": [
-    "./src/index.js",
-    "./src/components/*.js",
-    "*.css"
-  ],
   "exports": {
     ".": {
-      "types": "./src/index.d.ts",
-      "default": "./src/index.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     },
     "./theme": {
-      "types": "./src/index.d.ts",
-      "default": "./src/core/theme.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/core/theme.js"
     },
     "./theme-switch": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/theme-switch.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/theme-switch.js"
     },
     "./toggle": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/toggle.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/toggle.js"
     },
     "./checkbox": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/checkbox.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/checkbox.js"
     },
     "./radio": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/radio.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/radio.js"
     },
     "./radio-group": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/radio-group.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/radio-group.js"
     },
     "./segmented": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/segmented.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/segmented.js"
     },
     "./slider": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/slider.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/slider.js"
     },
     "./stepper": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/stepper.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/stepper.js"
     },
     "./tabs": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/tabs.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/tabs.js"
     },
     "./button": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/button.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/button.js"
     },
     "./input": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/input.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/input.js"
     },
     "./select": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/select.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/select.js"
     },
     "./textarea": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/textarea.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/textarea.js"
     },
     "./card": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/card.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/card.js"
     },
     "./carousel": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/carousel.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/carousel.js"
     },
     "./alert": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/alert.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/alert.js"
     },
     "./app-shell": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/app-shell.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/app-shell.js"
     },
     "./avatar": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/avatar.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/avatar.js"
     },
     "./badge": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/badge.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/badge.js"
     },
     "./grid": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/grid.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/grid.js"
     },
     "./progress": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/progress.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/progress.js"
     },
     "./skeleton": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/skeleton.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/skeleton.js"
     },
     "./spinner": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/spinner.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/spinner.js"
     },
     "./stack": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/stack.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/stack.js"
     },
-    "./tokens.css": "./src/tokens.css",
+    "./tokens.css": "./dist/tokens.css",
     "./accordion": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/accordion.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/accordion.js"
     },
     "./breadcrumb": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/breadcrumb.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/breadcrumb.js"
     },
     "./dialog": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/dialog.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/dialog.js"
     },
     "./drawer": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/drawer.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/drawer.js"
     },
     "./dropdown": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/dropdown.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/dropdown.js"
     },
     "./pagination": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/pagination.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/pagination.js"
     },
     "./table": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/table.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/table.js"
     },
     "./toast": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/toast.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/toast.js"
     },
     "./tooltip": {
-      "types": "./src/index.d.ts",
-      "default": "./src/components/tooltip.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/tooltip.js"
     }
   },
   "files": [
-    "src"
+    "dist"
   ],
   "engines": {
     "node": ">=24"
@@ -166,6 +161,7 @@
     "@types/react-dom": "^19.3.0",
     "@vitest/browser-playwright": "latest",
     "@vitest/coverage-v8": "latest",
+    "esbuild": "^0.28.2",
     "jsdom": "^30.1.2",
     "lit": "latest",
     "playwright": "latest",
@@ -182,8 +178,10 @@
     "build-storybook": "storybook build",
     "test": "vitest run",
     "test:types": "bash scripts/check-consumer.sh",
-    "verify": "pnpm test && pnpm test:types",
-    "prepublishOnly": "pnpm verify"
+    "verify": "pnpm build && pnpm test && pnpm test:types",
+    "prepublishOnly": "pnpm verify",
+    "build": "node scripts/build.mjs",
+    "prepack": "pnpm build"
   },
   "description": "Componentes UI atómicos como Web Components. Sin dependencias; funcionan en React, Vue, Svelte o HTML plano.",
   "license": "MIT",
@@ -206,9 +204,9 @@
     "zero-dependencies",
     "accessible"
   ],
-  "main": "./src/index.js",
-  "module": "./src/index.js",
-  "types": "./src/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "peerDependencies": {
     "@types/react": ">=18"
   },
