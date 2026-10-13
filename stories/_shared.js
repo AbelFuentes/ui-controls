@@ -46,3 +46,16 @@ export const h = (html) => {
   t.innerHTML = html.trim();
   return t.content.firstElementChild;
 };
+
+Object.assign(icons, {
+  left: 'M15 5l-7 7 7 7',
+  right: 'M9 5l7 7-7 7',
+  download: 'M12 4v11M7 11l5 5 5-5M5 20h14',
+  file: 'M7 3h7l5 5v13H7zM14 3v5h5',
+  clock: 'M12 3a9 9 0 100 18 9 9 0 000-18zM12 7v5l3 2',
+  comment: 'M4 5h16v11H9l-5 4z',
+  bookmark: 'M6 4h12v17l-6-4-6 4z',
+  eye: 'M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12zM12 15a3 3 0 100-6 3 3 0 000 6z',
+  send: 'M21 3L10 14M21 3l-7 18-4-7-7-4z',
+  dollar: 'M12 3v18M16 7.5C15 6.5 13.7 6 12 6c-2.2 0-4 1-4 3s1.8 2.5 4 3 4 1 4 3-1.8 3-4 3c-1.7 0-3-.6-4-1.5',
+});
