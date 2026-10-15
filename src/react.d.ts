@@ -1,7 +1,7 @@
 import type * as React from 'react';
 import type {
   Size, TableColumn, TableRow, TableSortDetail, TableSelectDetail, TableRowClickDetail,
-  UIAccordion, UIAlert, UIAppShell, UIAvatar, UIBadge, UIBreadcrumb, UIButton, UICard, UICarousel,
+  UIAccordion, UIAlert, UIAppShell, UIAspectRatio, UIContainer, UIDivider, UINav, UINavGroup, UINavItem, UINavbar, UIPageHeader, UIScrollArea, UISection, UISpacer, UISplit, UIToolbar, UIAvatar, UIBadge, UIBreadcrumb, UIButton, UICard, UICarousel,
   UICheckbox, UIDialog, UIDrawer, UIDropdown, UIGrid, UIInput, UIPagination, UIProgress, UIRadio,
   UIRadioGroup, UISegmented, UISelect, UISkeleton, UISlider, UISpinner, UIStack, UIStepper, UITable,
   UITabs, UITextarea, UIThemeSwitch, UIToaster, UIToggle, UITooltip,
@@ -21,6 +21,7 @@ type Base<T extends HTMLElement> = Omit<
 > & { class?: string; part?: string };
 
 type Gap = 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+type Breakpoint = 'sm' | 'md' | 'lg' | 'xl';
 type Tone = 'accent' | 'success' | 'warning' | 'danger' | 'neutral';
 type Field = {
   name?: string;
@@ -35,7 +36,9 @@ type Field = {
 type UIAccordionProps = Base<UIAccordion> & { multiple?: boolean; onchange?: Ev<{ index: number; open: boolean }> };
 type UIAlertProps = Base<UIAlert> & { tone?: 'info' | 'success' | 'warning' | 'danger'; dismissible?: boolean; onclose?: Ev };
 type UIAppShellProps = Base<UIAppShell> & {
-  collapsed?: boolean; open?: boolean; 'no-burger'?: boolean;
+  collapsed?: boolean; open?: boolean; rail?: boolean; 'no-burger'?: boolean;
+  'sidebar-width'?: string | number; 'aside-width'?: string | number;
+  'header-height'?: string | number; 'rail-width'?: string | number;
   ontoggle?: Ev<{ open: boolean; collapsed: boolean }>;
 };
 type UIAvatarProps = Base<UIAvatar> & {
@@ -74,7 +77,12 @@ type UIDropdownProps = Base<UIDropdown> & {
   placement?: 'bottom-start' | 'bottom-end' | 'bottom' | 'top-start' | 'top-end' | 'top';
   disabled?: boolean; onselect?: Ev<{ value: string }>;
 };
-type UIGridProps = Base<UIGrid> & { cols?: number | string; min?: string; gap?: Gap };
+type UIGridProps = Base<UIGrid> & {
+  cols?: number | string;
+  'cols-sm'?: number | string; 'cols-md'?: number | string; 'cols-lg'?: number | string; 'cols-xl'?: number | string;
+  min?: string | number; rows?: number | string; gap?: Gap;
+  align?: 'start' | 'center' | 'end' | 'stretch'; justify?: 'start' | 'center' | 'end'; dense?: boolean;
+};
 type UIInputProps = Base<UIInput> & Field & {
   type?: 'text' | 'email' | 'password' | 'number' | 'url' | 'tel' | 'search' | (string & {});
   value?: string; placeholder?: string; readonly?: boolean;
@@ -113,6 +121,7 @@ type UISpinnerProps = Base<UISpinner> & { size?: 'sm' | 'md' | 'lg' | 'xl'; labe
 type UIStackProps = Base<UIStack> & {
   direction?: 'column' | 'row'; gap?: Gap; align?: 'start' | 'center' | 'end' | 'stretch';
   justify?: 'start' | 'center' | 'end' | 'between'; wrap?: boolean;
+  divider?: boolean; inline?: boolean; reverse?: boolean; collapse?: Breakpoint;
 };
 type UIStepperProps = Base<UIStepper> & {
   value?: number; orientation?: 'horizontal' | 'vertical'; clickable?: boolean; size?: Size; label?: string;
@@ -158,10 +167,65 @@ type UITooltipProps = Base<UITooltip> & {
   text?: string; placement?: 'top' | 'bottom' | 'left' | 'right'; delay?: number;
 };
 
+type UIAspectRatioProps = Base<UIAspectRatio> & { ratio?: string | number; fit?: 'cover' | 'contain'; rounded?: boolean };
+type UIContainerProps = Base<UIContainer> & {
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'full'; padding?: 'none' | 'sm' | 'md' | 'lg'; center?: boolean;
+};
+type UIDividerProps = Base<UIDivider> & {
+  orientation?: 'horizontal' | 'vertical'; align?: 'start' | 'center' | 'end';
+  spacing?: 'none' | 'sm' | 'md' | 'lg'; tone?: 'default' | 'strong';
+};
+type UINavProps = Base<UINav> & {
+  value?: string; label?: string; orientation?: 'vertical' | 'horizontal'; rail?: boolean;
+  onchange?: Ev<{ value: string }>;
+};
+type UINavGroupProps = Base<UINavGroup> & {
+  label?: string; collapsible?: boolean; collapsed?: boolean; ontoggle?: Ev<{ collapsed: boolean }>;
+};
+type UINavItemProps = Base<UINavItem> & {
+  href?: string; target?: string; value?: string; active?: boolean; disabled?: boolean; label?: string;
+};
+type UINavbarProps = Base<UINavbar> & {
+  sticky?: boolean; variant?: 'surface' | 'transparent'; collapse?: Breakpoint | 'none';
+  'links-align'?: 'start' | 'center' | 'end'; open?: boolean; label?: string; ontoggle?: Ev<{ open: boolean }>;
+};
+type UIPageHeaderProps = Base<UIPageHeader> & {
+  heading?: string; description?: string; level?: 1 | 2 | 3 | 4 | 5 | 6; size?: 'md' | 'lg'; divider?: boolean;
+};
+type UIScrollAreaProps = Base<UIScrollArea> & {
+  direction?: 'vertical' | 'horizontal' | 'both'; 'max-height'?: string | number; 'max-width'?: string | number;
+  fade?: boolean; 'hide-scrollbar'?: boolean; label?: string;
+};
+type UISectionProps = Base<UISection> & {
+  tone?: 'none' | 'soft' | 'surface' | 'accent' | 'dark'; padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'full'; center?: boolean;
+};
+type UISpacerProps = Base<UISpacer> & { size?: string | number };
+type UISplitProps = Base<UISplit> & {
+  side?: 'left' | 'right'; 'aside-width'?: string | number; gap?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
+  sticky?: boolean; collapse?: Breakpoint | 'none';
+};
+type UIToolbarProps = Base<UIToolbar> & {
+  variant?: 'plain' | 'surface' | 'soft' | 'floating'; size?: Size; sticky?: boolean; wrap?: boolean;
+};
+
 declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
       'ui-accordion': UIAccordionProps;
+      'ui-aspect-ratio': UIAspectRatioProps;
+      'ui-container': UIContainerProps;
+      'ui-divider': UIDividerProps;
+      'ui-nav': UINavProps;
+      'ui-nav-group': UINavGroupProps;
+      'ui-nav-item': UINavItemProps;
+      'ui-navbar': UINavbarProps;
+      'ui-page-header': UIPageHeaderProps;
+      'ui-scroll-area': UIScrollAreaProps;
+      'ui-section': UISectionProps;
+      'ui-spacer': UISpacerProps;
+      'ui-split': UISplitProps;
+      'ui-toolbar': UIToolbarProps;
       'ui-alert': UIAlertProps;
       'ui-app-shell': UIAppShellProps;
       'ui-avatar': UIAvatarProps;

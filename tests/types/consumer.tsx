@@ -104,3 +104,43 @@ export function App() {
     </form>
   );
 }
+
+export function LayoutDemo() {
+  return (
+    <ui-app-shell rail sidebar-width="15rem" aside-width={20} header-height={4} ontoggle={(e) => console.log(e.detail.collapsed)}>
+      <ui-navbar slot="header" sticky collapse="lg" links-align="center" ontoggle={(e) => console.log(e.detail.open)}>
+        <a slot="brand" href="/">Acme</a>
+        <a href="/docs" aria-current="page">Docs</a>
+      </ui-navbar>
+      <ui-nav slot="sidebar" label="Principal" value="home" onchange={(e) => console.log(e.detail.value)}>
+        <ui-nav-group label="General" collapsible>
+          <ui-nav-item value="home" active>Inicio</ui-nav-item>
+          <ui-nav-item href="/x" target="_blank" disabled>Externo</ui-nav-item>
+        </ui-nav-group>
+      </ui-nav>
+      <ui-container size="lg" padding="lg" center>
+        <ui-page-header heading="Facturas" description="Emite y cobra" level={2} divider size="lg" />
+        <ui-split side="left" aside-width="18rem" gap="lg" sticky collapse="md">
+          <ui-stack direction="row" gap="sm" divider collapse="md" align="center" justify="between" wrap reverse inline>
+            <ui-spacer size={2} />
+            <ui-divider orientation="vertical" spacing="sm" tone="strong" />
+          </ui-stack>
+          <ui-grid slot="aside" cols={1} cols-md={2} cols-xl="4" min={12} rows={2} gap="xs" align="center" justify="end" dense />
+        </ui-split>
+        <ui-section tone="accent" padding="xl" size="full" center>
+          <ui-aspect-ratio ratio="16/9" fit="contain" rounded />
+          <ui-scroll-area direction="both" max-height="12rem" max-width={20} fade hide-scrollbar label="Lista" />
+          <ui-toolbar variant="floating" size="sm" sticky wrap />
+        </ui-section>
+        {/* @ts-expect-error tono inválido */}
+        <ui-section tone="rojo" />
+        {/* @ts-expect-error breakpoint inválido */}
+        <ui-stack collapse="xxl" />
+        {/* @ts-expect-error nivel inválido */}
+        <ui-page-header level={7} />
+        {/* @ts-expect-error direction no existe en split */}
+        <ui-split direction="row" />
+      </ui-container>
+    </ui-app-shell>
+  );
+}

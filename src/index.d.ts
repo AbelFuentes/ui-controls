@@ -182,9 +182,46 @@ export class UIToggle extends HTMLElement {
 }
 export class UITooltip extends HTMLElement {}
 
+export class UIAspectRatio extends HTMLElement {}
+export class UIContainer extends HTMLElement {}
+export class UIDivider extends HTMLElement {}
+export class UINav extends HTMLElement {
+  value: string;
+}
+export class UINavGroup extends HTMLElement {}
+export class UINavItem extends HTMLElement {
+  active: boolean;
+  disabled: boolean;
+  focus(options?: FocusOptions): void;
+}
+export class UINavbar extends HTMLElement {
+  open: boolean;
+  toggle(): void;
+  close(): void;
+}
+export class UIPageHeader extends HTMLElement {}
+export class UIScrollArea extends HTMLElement {}
+export class UISection extends HTMLElement {}
+export class UISpacer extends HTMLElement {}
+export class UISplit extends HTMLElement {}
+export class UIToolbar extends HTMLElement {}
+
 declare global {
   interface HTMLElementTagNameMap {
     'ui-accordion': UIAccordion;
+    'ui-aspect-ratio': UIAspectRatio;
+    'ui-container': UIContainer;
+    'ui-divider': UIDivider;
+    'ui-nav': UINav;
+    'ui-nav-group': UINavGroup;
+    'ui-nav-item': UINavItem;
+    'ui-navbar': UINavbar;
+    'ui-page-header': UIPageHeader;
+    'ui-scroll-area': UIScrollArea;
+    'ui-section': UISection;
+    'ui-spacer': UISpacer;
+    'ui-split': UISplit;
+    'ui-toolbar': UIToolbar;
     'ui-alert': UIAlert;
     'ui-app-shell': UIAppShell;
     'ui-avatar': UIAvatar;

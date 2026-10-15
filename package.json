@@ -143,10 +143,55 @@
     "./tooltip": {
       "types": "./dist/index.d.ts",
       "default": "./dist/components/tooltip.js"
+    },
+    "./aspect-ratio": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/aspect-ratio.js"
+    },
+    "./container": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/container.js"
+    },
+    "./divider": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/divider.js"
+    },
+    "./nav": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/nav.js"
+    },
+    "./navbar": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/navbar.js"
+    },
+    "./page-header": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/page-header.js"
+    },
+    "./scroll-area": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/scroll-area.js"
+    },
+    "./section": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/section.js"
+    },
+    "./spacer": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/spacer.js"
+    },
+    "./split": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/split.js"
+    },
+    "./toolbar": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/components/toolbar.js"
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "COMPONENTS.md"
   ],
   "engines": {
     "node": ">=24"
