@@ -1,0 +1,2 @@
+- Add github test-shard
+- Add github checks to prevent pull request being merged if it breaks the app
