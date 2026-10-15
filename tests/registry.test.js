@@ -29,7 +29,7 @@ describe('tipos y paquete', () => {
   it('package.json publica dist (no src) y expone types', () => {
     const p = pkg();
     expect(p.types).toBe('./dist/index.d.ts');
-    expect(p.files).toEqual(['dist']);
+    expect(p.files).toEqual(['dist', 'COMPONENTS.md']);
     expect(p.sideEffects).toBeUndefined(); // los chunks de dist registran elementos
     for (const f of componentFiles) expect(p.exports[`./${f}`], f).toBeTruthy();
     for (const [k, v] of Object.entries(p.exports)) {
