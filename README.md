@@ -77,3 +77,11 @@ https://abelfuentes.github.io/ui-controls/
 ## Apoya el proyecto
 
 Si te sirve, puedes invitarme un café: https://ko-fi.com/abelfuentes
+
+## Para IAs y agentes
+
+`COMPONENTS.md` lista todos los componentes, atributos válidos, slots, eventos y ejemplos. Está pensado para que cualquier IA sepa de inmediato qué puede usar y cómo. Un test lo mantiene sincronizado con los tipos.
+
+En tu proyecto, agrega esta línea a tu `CLAUDE.md` o `AGENTS.md`:
+
+    Para UI usa @abelfuentes/ui-controls. Referencia: node_modules/@abelfuentes/ui-controls/COMPONENTS.md
