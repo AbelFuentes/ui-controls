@@ -19,3 +19,27 @@ export default {
 export const Default = {};
 export const Row = { args: { direction: 'row', align: 'center' } };
 export const SpaceBetween = { args: { direction: 'row', justify: 'between' } };
+
+/* ───────── divisores, colapso y orden inverso ───────── */
+export const WithDividers = {
+  render: () => `
+    <ui-stack divider gap="lg" style="width:min(24rem,92vw)">
+      <div><strong>Uno</strong><div style="opacity:.7">Primer elemento</div></div>
+      <div><strong>Dos</strong><div style="opacity:.7">Segundo elemento</div></div>
+      <div><strong>Tres</strong><div style="opacity:.7">Tercer elemento</div></div>
+    </ui-stack>`,
+};
+
+export const CollapseOnMobile = {
+  render: () => `
+    <ui-stack direction="row" collapse="md" divider gap="lg" style="width:min(40rem,94vw)">
+      <div><strong>Ingresos</strong><div style="opacity:.7">$48,200</div></div>
+      <div><strong>Pedidos</strong><div style="opacity:.7">1,284</div></div>
+      <div><strong>Clientes</strong><div style="opacity:.7">892</div></div>
+    </ui-stack>
+    <p style="font-size:.85rem;opacity:.7">Bajo 768px la fila pasa a columna y la línea vertical a horizontal.</p>`,
+};
+
+export const Reverse = {
+  render: () => `<ui-stack reverse gap="sm" style="width:12rem"><ui-button>Primero (abajo)</ui-button><ui-button variant="outline">Segundo (arriba)</ui-button></ui-stack>`,
+};
