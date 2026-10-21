@@ -24,7 +24,7 @@ Sin build (CDN): `<script type="module" src="https://cdn.jsdelivr.net/npm/@abelf
 4. **`size`**: `sm` | `md` (default) | `lg`, salvo que el componente indique otros valores.
 5. **Eventos**: son `CustomEvent` con `detail`, nombre en minúsculas (`change`, `rowclick`, `toggle`...), con `bubbles` y `composed`. En React 19 escríbelos en minúsculas: `onchange`, `onrowclick`, `ontoggle`. `onInput`, `onClick` y `onKeyDown` funcionan normal. `onChange` en camelCase **no** se dispara con custom elements: usa `onchange`.
 6. **Hijos con significado**: `<option>` en `ui-select`, `ui-segmented` y `ui-dropdown`; `<section data-tab>` en `ui-tabs`; `<section data-title>` en `ui-accordion`; `<li>` en `ui-stepper`. Los slots se eligen con `slot="nombre"`.
-7. **Formularios**: `ui-input`, `ui-textarea`, `ui-select`, `ui-checkbox`, `ui-toggle`, `ui-radio-group`, `ui-segmented` y `ui-slider` participan en el `<form>` (`name`, `required`, `reset`, `FormData`). `<ui-button type="submit">` envía el formulario padre.
+7. **Formularios**: `ui-input`, `ui-textarea`, `ui-select`, `ui-combobox`, `ui-date-picker`, `ui-tag-input`, `ui-file-upload`, `ui-checkbox`, `ui-toggle`, `ui-radio-group`, `ui-segmented` y `ui-slider` participan en el `<form>` (`name`, `required`, `reset`, `FormData`). `<ui-button type="submit">` envía el formulario padre.
 8. **Medidas**: los atributos de longitud (`aside-width`, `max-height`, `sidebar-width`...) aceptan un CSS length (`"18rem"`, `"240px"`) o un número, que se interpreta como `rem` (en `ui-avatar` y `ui-skeleton` el número son `px`).
 9. **Breakpoints**: `sm` 640px · `md` 768px · `lg` 1024px · `xl` 1280px. Los atributos `collapse` y `cols-*` usan estos nombres.
 10. **Datos complejos por propiedad JS**, no por atributo: `ui-table` recibe `columns` y `rows` como propiedades.
@@ -45,10 +45,11 @@ Layout: `--ui-container-width`, `--ui-container-padding`, `--ui-section-padding`
 |---|---|
 | Layout | `ui-app-shell` `ui-aspect-ratio` `ui-container` `ui-divider` `ui-grid` `ui-page-header` `ui-scroll-area` `ui-section` `ui-spacer` `ui-split` `ui-stack` `ui-toolbar` |
 | Navegación | `ui-breadcrumb` `ui-nav` `ui-nav-group` `ui-nav-item` `ui-navbar` `ui-pagination` `ui-stepper` `ui-tabs` |
-| Formularios | `ui-button` `ui-checkbox` `ui-input` `ui-radio` `ui-radio-group` `ui-segmented` `ui-select` `ui-slider` `ui-textarea` `ui-toggle` |
+| Formularios | `ui-button` `ui-checkbox` `ui-combobox` `ui-date-picker` `ui-file-upload` `ui-input` `ui-radio` `ui-radio-group` `ui-segmented` `ui-select` `ui-slider` `ui-tag-input` `ui-textarea` `ui-toggle` |
 | Datos | `ui-accordion` `ui-avatar` `ui-badge` `ui-card` `ui-carousel` `ui-table` |
 | Feedback | `ui-alert` `ui-progress` `ui-skeleton` `ui-spinner` `ui-toaster` (`toast()`) `ui-tooltip` |
 | Overlays | `ui-dialog` `ui-drawer` `ui-dropdown` |
+| Contenido | `ui-empty-state` `ui-stat` `ui-text` |
 | Tema | `ui-theme-switch` |
 
 ---
@@ -124,11 +125,26 @@ Casilla con texto.
 - Eventos: `change` `{ checked }`
 - Ejemplo: `<ui-checkbox name="terms" required>Acepto los términos</ui-checkbox>`
 
+## `ui-combobox`
+Campo con búsqueda: escribes y filtra las opciones (sin importar acentos ni mayúsculas).
+- Hijos: `<option value="x" [disabled]>Texto</option>`
+- Atributos: `value` · `label` · `placeholder` · `hint` · `error` · `name` · `required` · `disabled` · `size` · `empty` (texto cuando no hay resultados) · `clearable` (botón para borrar) · `allow-custom` (acepta texto libre con Enter o al salir)
+- Eventos: `change` `{ value, label }` (al elegir; lo que escribes llega como evento nativo `input`) · JS: `value`, `query`, `checkValidity()`, `reportValidity()`, `focus()`
+- Teclado: flechas, Enter elige, Esc cierra.
+- Ejemplo: `<ui-combobox label="País" name="pais" clearable><option value="mx">México</option><option value="co">Colombia</option></ui-combobox>`
+
 ## `ui-container`
 Centra el contenido con ancho máximo y relleno lateral.
 - Atributos: `size` sm (40rem) | md (56rem) | lg (72rem, default) | xl (88rem) | full · `padding` none | sm | md (default) | lg · `center` (texto centrado)
 - CSS: `--ui-container-width`, `--ui-container-padding`
 - Ejemplo: `<ui-container size="md"><h1>Hola</h1></ui-container>`
+
+## `ui-date-picker`
+Selector de fecha con calendario desplegable. El valor es una fecha ISO `YYYY-MM-DD`.
+- Atributos: `value` · `min` · `max` (límites ISO) · `label` · `placeholder` · `hint` · `error` · `name` · `required` · `disabled` · `size` · `locale` (p. ej. "es-MX"; por defecto el idioma de la página) · `week-start` 1 (lunes, default) | 0 (domingo) · `clearable`
+- Eventos: `change` `{ value }` ("" si se borra) · JS: `value`, `valueAsDate`, `open()`, `close()`, `checkValidity()`, `reportValidity()`, `focus()`
+- Teclado en el calendario: flechas (día y semana), Inicio/Fin (semana), RePág/AvPág (mes; con Shift, año), Esc cierra.
+- Ejemplo: `<ui-date-picker label="Fecha del gasto" name="fecha" min="2026-01-01" required></ui-date-picker>`
 
 ## `ui-dialog`
 Diálogo modal (usa `<dialog>`): foco atrapado, Esc y clic fuera cierran.
@@ -157,6 +173,20 @@ Menú desplegable anclado a un disparador. Usa la capa superior del navegador (n
 - Atributos: `placement` bottom-start (default) | bottom-end | bottom | top-start | top-end | top · `disabled`
 - Eventos: `select` `{ value }` · JS: `open()`, `close()`, `toggle()`
 - Ejemplo: `<ui-dropdown placement="bottom-end"><ui-button slot="trigger" variant="ghost">Acciones</ui-button><option value="edit">Editar</option><option value="del" data-danger>Eliminar</option></ui-dropdown>`
+
+## `ui-empty-state`
+Estado vacío con icono, título, descripción y acciones.
+- Atributos: `heading` · `description` · `level` 1–6 (aria-level del título, 2) · `size` sm | md (default) | lg · `bordered` (borde punteado)
+- Slots: `icon` (svg) · default (contenido extra) · `actions`
+- Ejemplo: `<ui-empty-state heading="Aún no tienes facturas" description="Crea la primera." bordered><ui-button slot="actions">Nueva factura</ui-button></ui-empty-state>`
+
+## `ui-file-upload`
+Zona para arrastrar o elegir archivos, con lista de archivos (miniatura si son imágenes).
+- Atributos: `accept` (como en `<input type=file>`: ".pdf,image/*") · `multiple` · `max-size` (MB por archivo) · `max-files` · `name` · `label` · `hint` · `error` · `required` · `disabled`
+- Slots: default (texto de la zona)
+- Eventos: `change` `{ files }` · `reject` `{ file, reason: 'type'|'size'|'count' }` · JS: `files` (solo lectura), `clear()`, `checkValidity()`, `reportValidity()`, `focus()`
+- Con `name`, los archivos viajan en el `FormData` del formulario.
+- Ejemplo: `<ui-file-upload label="Comprobantes" name="docs" accept=".pdf,image/*" multiple max-size="5"></ui-file-upload>`
 
 ## `ui-grid`
 Rejilla CSS. Sin `cols` usa columnas automáticas de ancho mínimo `min`.
@@ -287,6 +317,12 @@ Apila hijos con espacio uniforme (flexbox).
 - Atributos: `direction` column (default) | row · `gap` none | xs | sm | md (default) | lg | xl · `align` start | center | end | stretch · `justify` start | center | end | between · `wrap` · `divider` (línea entre hijos) · `inline` · `reverse` · `collapse` sm | md | lg | xl (una fila pasa a columna bajo ese breakpoint; sin el atributo no colapsa)
 - Ejemplo: `<ui-stack direction="row" gap="sm" collapse="md" align="center"><ui-button>A</ui-button><ui-button>B</ui-button></ui-stack>`
 
+## `ui-stat`
+Indicador (KPI): etiqueta, valor, variación y nota.
+- Atributos: `label` · `value` · `delta` (p. ej. "+12%"; la tendencia sale del signo) · `trend` up | down | flat (fuerza la tendencia) · `invert` (subir es malo, p. ej. costos: invierte los colores) · `hint` · `loading`
+- Slots: `icon` · default (contenido extra bajo el valor)
+- Ejemplo: `<ui-stat label="Ingresos" value="$48,200" delta="+12%" hint="vs. mes anterior"></ui-stat>`
+
 ## `ui-stepper`
 Pasos de un flujo.
 - Hijos: `<li data-description="texto opcional">Título</li>`
@@ -308,6 +344,18 @@ Pestañas con indicador deslizante.
 - Atributos: `value` (id de la pestaña activa) · `variant` line (default) | pill · `size` · `label`
 - Eventos: `change` `{ value }`
 - Ejemplo: `<ui-tabs value="a"><section data-tab="a" data-label="General">…</section><section data-tab="b" data-label="Equipo">…</section></ui-tabs>`
+
+## `ui-tag-input`
+Campo de etiquetas: Enter o coma agregan; Backspace quita la última; pegar texto con comas las separa.
+- Atributos: `value` (etiquetas separadas por coma) · `label` · `placeholder` · `hint` · `error` · `name` · `required` · `disabled` · `size` · `max` · `allow-duplicates`
+- Eventos: `change` `{ tags }` · `add` `{ tag }` · `remove` `{ tag }` · `reject` `{ tag, reason: 'duplicate'|'max' }` · JS: `tags` (array), `value`
+- Con `name`, el valor del formulario es el texto separado por comas.
+- Ejemplo: `<ui-tag-input label="Etiquetas" name="tags" max="5" value="oficina,viajes"></ui-tag-input>`
+
+## `ui-text`
+Tipografía con los tokens del tema. Los encabezados exponen `role="heading"` sin cambiar el elemento.
+- Atributos: `variant` display | h1 | h2 | h3 | h4 | h5 | h6 | lead | body (default) | small | caption | overline | code · `tone` default | muted | accent | success | warning | danger · `weight` normal | medium | semibold | bold · `align` start | center | end · `size` xs | sm | md | lg | xl | 2xl | 3xl · `level` 1–6 (aria-level; por defecto el del `variant`) · `lines` (recorta a N líneas) · `truncate` (una línea con …) · `balance` (reparte el texto) · `inline`
+- Ejemplo: `<ui-text variant="h2">Facturas</ui-text><ui-text variant="lead" tone="muted">Emite y cobra.</ui-text>`
 
 ## `ui-textarea`
 Área de texto con label flotante, autoajuste y contador.

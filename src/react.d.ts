@@ -1,7 +1,7 @@
 import type * as React from 'react';
 import type {
   Size, TableColumn, TableRow, TableSortDetail, TableSelectDetail, TableRowClickDetail,
-  UIAccordion, UIAlert, UIAppShell, UIAspectRatio, UIContainer, UIDivider, UINav, UINavGroup, UINavItem, UINavbar, UIPageHeader, UIScrollArea, UISection, UISpacer, UISplit, UIToolbar, UIAvatar, UIBadge, UIBreadcrumb, UIButton, UICard, UICarousel,
+  UIAccordion, UIAlert, UIAppShell, UICombobox, UIDatePicker, UIEmptyState, UIFileUpload, UIStat, UITagInput, UIText, UIAspectRatio, UIContainer, UIDivider, UINav, UINavGroup, UINavItem, UINavbar, UIPageHeader, UIScrollArea, UISection, UISpacer, UISplit, UIToolbar, UIAvatar, UIBadge, UIBreadcrumb, UIButton, UICard, UICarousel,
   UICheckbox, UIDialog, UIDrawer, UIDropdown, UIGrid, UIInput, UIPagination, UIProgress, UIRadio,
   UIRadioGroup, UISegmented, UISelect, UISkeleton, UISlider, UISpinner, UIStack, UIStepper, UITable,
   UITabs, UITextarea, UIThemeSwitch, UIToaster, UIToggle, UITooltip,
@@ -209,10 +209,51 @@ type UIToolbarProps = Base<UIToolbar> & {
   variant?: 'plain' | 'surface' | 'soft' | 'floating'; size?: Size; sticky?: boolean; wrap?: boolean;
 };
 
+type UIComboboxProps = Base<UICombobox> & Field & {
+  value?: string; placeholder?: string; empty?: string; clearable?: boolean; 'allow-custom'?: boolean;
+  onchange?: Ev<{ value: string; label: string }>;
+};
+type UIDatePickerProps = Base<UIDatePicker> & Field & {
+  value?: string; min?: string; max?: string; placeholder?: string; locale?: string;
+  'week-start'?: 0 | 1 | '0' | '1'; clearable?: boolean;
+  onchange?: Ev<{ value: string }>;
+};
+type UIEmptyStateProps = Base<UIEmptyState> & {
+  heading?: string; description?: string; level?: 1 | 2 | 3 | 4 | 5 | 6; size?: Size; bordered?: boolean;
+};
+type UIFileUploadProps = Base<UIFileUpload> & {
+  accept?: string; multiple?: boolean; 'max-size'?: number | string; 'max-files'?: number | string;
+  name?: string; label?: string; hint?: string; error?: string; required?: boolean; disabled?: boolean;
+  onchange?: Ev<{ files: File[] }>; onreject?: Ev<{ file: File; reason: 'type' | 'size' | 'count' }>;
+};
+type UIStatProps = Base<UIStat> & {
+  label?: string; value?: string | number; delta?: string; trend?: 'up' | 'down' | 'flat';
+  invert?: boolean; hint?: string; loading?: boolean;
+};
+type UITagInputProps = Base<UITagInput> & Field & {
+  value?: string; placeholder?: string; max?: number | string; 'allow-duplicates'?: boolean;
+  onchange?: Ev<{ tags: string[] }>; onadd?: Ev<{ tag: string }>; onremove?: Ev<{ tag: string }>;
+  onreject?: Ev<{ tag: string; reason: 'duplicate' | 'max' }>;
+};
+type UITextProps = Base<UIText> & {
+  variant?: 'display' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'lead' | 'body' | 'small' | 'caption' | 'overline' | 'code';
+  tone?: 'default' | 'muted' | 'accent' | 'success' | 'warning' | 'danger';
+  weight?: 'normal' | 'medium' | 'semibold' | 'bold'; align?: 'start' | 'center' | 'end';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
+  level?: 1 | 2 | 3 | 4 | 5 | 6; lines?: number; truncate?: boolean; balance?: boolean; inline?: boolean;
+};
+
 declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
       'ui-accordion': UIAccordionProps;
+      'ui-combobox': UIComboboxProps;
+      'ui-date-picker': UIDatePickerProps;
+      'ui-empty-state': UIEmptyStateProps;
+      'ui-file-upload': UIFileUploadProps;
+      'ui-stat': UIStatProps;
+      'ui-tag-input': UITagInputProps;
+      'ui-text': UITextProps;
       'ui-aspect-ratio': UIAspectRatioProps;
       'ui-container': UIContainerProps;
       'ui-divider': UIDividerProps;

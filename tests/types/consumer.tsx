@@ -144,3 +144,40 @@ export function LayoutDemo() {
     </ui-app-shell>
   );
 }
+
+import type { UIDatePicker, UIFileUpload, UITagInput } from '@abelfuentes/ui-controls';
+
+export function FieldsDemo() {
+  const dp = useRef<UIDatePicker>(null);
+  const fu = useRef<UIFileUpload>(null);
+  const ti = useRef<UITagInput>(null);
+  return (
+    <form>
+      <ui-combobox name="pais" label="País" required clearable allow-custom empty="Nada" size="lg"
+        onchange={(e) => console.log(e.detail.value, e.detail.label)}>
+        <option value="mx">México</option>
+      </ui-combobox>
+      <ui-date-picker ref={dp} label="Fecha" name="f" min="2026-01-01" max="2026-12-31" week-start={0} locale="es-MX" clearable
+        onchange={(e) => console.log(e.detail.value)} />
+      <ui-tag-input ref={ti} label="Etiquetas" max={5} allow-duplicates value="a,b"
+        onchange={(e) => console.log(e.detail.tags.length)} onadd={(e) => console.log(e.detail.tag)}
+        onreject={(e) => console.log(e.detail.reason === 'max')} />
+      <ui-file-upload ref={fu} label="Archivos" accept=".pdf,image/*" multiple max-size={5} max-files="3" name="docs"
+        onchange={(e) => console.log(e.detail.files[0]?.name)} onreject={(e) => console.log(e.detail.file.size, e.detail.reason)} />
+      <ui-stat label="Ingresos" value={48200} delta="+12%" trend="up" invert hint="vs. mes anterior" loading />
+      <ui-empty-state heading="Nada" description="Crea uno" level={3} size="lg" bordered />
+      <ui-text variant="h2" tone="accent" weight="bold" align="center" size="2xl" level={2} lines={3} truncate balance inline>Hola</ui-text>
+      <button onClick={() => {
+        dp.current?.open();
+        console.log(dp.current?.valueAsDate?.getFullYear(), fu.current?.files.length, ti.current?.tags.join(','));
+        fu.current?.clear();
+      }}>x</button>
+      {/* @ts-expect-error variante inválida */}
+      <ui-text variant="h9" />
+      {/* @ts-expect-error week-start inválido */}
+      <ui-date-picker week-start={2} />
+      {/* @ts-expect-error trend inválido */}
+      <ui-stat trend="sideways" />
+    </form>
+  );
+}

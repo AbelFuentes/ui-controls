@@ -206,9 +206,54 @@ export class UISpacer extends HTMLElement {}
 export class UISplit extends HTMLElement {}
 export class UIToolbar extends HTMLElement {}
 
+export class UICombobox extends HTMLElement {
+  value: string;
+  disabled: boolean;
+  readonly query: string;
+  checkValidity(): boolean;
+  reportValidity(): boolean;
+  focus(options?: FocusOptions): void;
+}
+export class UIDatePicker extends HTMLElement {
+  value: string;
+  disabled: boolean;
+  readonly valueAsDate: Date | null;
+  open(): void;
+  close(refocus?: boolean): void;
+  checkValidity(): boolean;
+  reportValidity(): boolean;
+  focus(options?: FocusOptions): void;
+}
+export class UIEmptyState extends HTMLElement {}
+export class UIFileUpload extends HTMLElement {
+  readonly files: File[];
+  disabled: boolean;
+  clear(): void;
+  checkValidity(): boolean;
+  reportValidity(): boolean;
+  focus(options?: FocusOptions): void;
+}
+export class UIStat extends HTMLElement {}
+export class UITagInput extends HTMLElement {
+  tags: string[];
+  value: string;
+  disabled: boolean;
+  checkValidity(): boolean;
+  reportValidity(): boolean;
+  focus(options?: FocusOptions): void;
+}
+export class UIText extends HTMLElement {}
+
 declare global {
   interface HTMLElementTagNameMap {
     'ui-accordion': UIAccordion;
+    'ui-combobox': UICombobox;
+    'ui-date-picker': UIDatePicker;
+    'ui-empty-state': UIEmptyState;
+    'ui-file-upload': UIFileUpload;
+    'ui-stat': UIStat;
+    'ui-tag-input': UITagInput;
+    'ui-text': UIText;
     'ui-aspect-ratio': UIAspectRatio;
     'ui-container': UIContainer;
     'ui-divider': UIDivider;
